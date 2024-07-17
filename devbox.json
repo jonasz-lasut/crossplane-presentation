@@ -1,0 +1,24 @@
+{
+  "packages": [
+    "kind@0.23.0",
+    "kubernetes-helm@3.15.2",
+    "just@1.29.1",
+    "kyverno-chainsaw@0.2.3",
+    "crossplane-cli@1.16.0",
+    "kubectl@1.30.2",
+    "argocd@2.11.4",
+    "marp-cli@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "pushd docs && npm install && popd",
+      "if [ -n \"$ZSH_VERSION\" ]; then export SHELL_NAME=zsh; elif [ -n \"$BASH_VERSION\" ]; then export SHELL_NAME=bash;fi",
+      "source <(just --completions $SHELL_NAME)"
+    ],
+    "scripts": {
+      "setup":           ["just setup"],
+      "teardown":        ["just teardown"],
+      "argocd-password": ["just get-argocd-password"]
+    }
+  }
+}
