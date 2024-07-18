@@ -48,7 +48,7 @@ _setup-argocd:
 
 # Setup ArgoCD application of applications and configure configmap for crossplane tracking
 _bootstrap-argocd:
-  kubectl apply -f argocd.boostrap.yaml
+  kubectl apply -f argocd.bootstrap.yaml
 
 # * Setup development environment
 setup cluster_name='crossplane-cluster' xp_namespace='crossplane-system': _setup-kind _setup-crossplane _setup-argocd _bootstrap-argocd get-argocd-password
