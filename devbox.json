@@ -11,7 +11,6 @@
   ],
   "shell": {
     "init_hook": [
-      "pushd docs && npm install && popd",
       "if [ -n \"$ZSH_VERSION\" ]; then export SHELL_NAME=zsh; elif [ -n \"$BASH_VERSION\" ]; then export SHELL_NAME=bash;fi",
       "source <(just --completions $SHELL_NAME)"
     ],
