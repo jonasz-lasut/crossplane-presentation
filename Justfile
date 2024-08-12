@@ -57,7 +57,7 @@ _setup-providers xp_namespace='upbound-system':
 _setup-argocd:
   #!/usr/bin/env bash
   kubectl apply -f bootstrap/platform/xargo.yaml
-  gum spin --title "Waiting for ArgoCD deployments 🐙" -- kubectl wait --for=condition=available=true deployments --all -n argocd
+  gum spin --title "Waiting for ArgoCD XR 🐙" -- kubectl wait --timeout=300s --for=condition=Ready xargo/gitops-argocd && kubectl wait --for=condition=available=true deployments --all -n argocd
 
   # In production setup it would be handled by Kyverno or similar
   kubectl annotate ingress argocd-server -n argocd "nginx.ingress.kubernetes.io/force-ssl-redirect"="true" "nginx.ingress.kubernetes.io/backend-protocol"="HTTPS"
@@ -75,9 +75,3 @@ get-argocd-password:
 # Destroy development cluster
 teardown cluster_name='crossplane-cluster':
   kind delete clusters {{cluster_name}}
-
-# *
-# Serve MARP presentation
-serve-presentation:
-  #!/usr/bin/env bash
-  marp --html=true --server docs/presentation/
