@@ -34,7 +34,10 @@ _setup-crossplane xp_namespace='upbound-system':
 # Setup crossplane configurations
 _setup-configurations xp_namespace='upbound-system':
   kubectl apply -f bootstrap/crossplane/configuration-argocd.yaml
-  gum spin --title "Waiting for ArgoCD configuration 🐙" -- kubectl wait --for=condition=healthy --timeout=60s configuration.pkg.crossplane.io/configuration-argocd
+  gum spin --title "Waiting for ArgoCD configuration 🐙" -- kubectl wait --for=condition=healthy --timeout=60s configuration.pkg.crossplane.io/configuration-argocd && sleep 10
+
+  # Patch out redis HA for local demo
+  kubectl get composition xargo.gitops.platform.upbound.io -o json | jq '.spec.pipeline[0].input.resources[0].base.spec.forProvider.values["redis-ha"].enabled = false' | kubectl apply -f -
 
 # Setup crossplane providers
 _setup-providers xp_namespace='upbound-system':
@@ -54,6 +57,10 @@ _setup-providers xp_namespace='upbound-system':
 _setup-argocd:
   #!/usr/bin/env bash
   kubectl apply -f bootstrap/platform/xargo.yaml
+  gum spin --title "Waiting for ArgoCD deployments 🐙" -- kubectl wait --for=condition=available=true deployments --all -n argocd
+
+  # In production setup it would be handled by Kyverno or similar
+  kubectl annotate ingress argocd-server -n argocd "nginx.ingress.kubernetes.io/force-ssl-redirect"="true" "nginx.ingress.kubernetes.io/backend-protocol"="HTTPS"
 
 # *
 # Setup development environment

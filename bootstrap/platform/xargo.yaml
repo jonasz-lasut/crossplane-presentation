@@ -27,6 +27,6 @@ spec:
     source:
       git:
         url: https://github.com/jonasz-lasut/crossplane-presentation.git
-        path: platform
+        path: "bootstrap/gitops"
         ref:
-          name: HEAD
+          name: init
