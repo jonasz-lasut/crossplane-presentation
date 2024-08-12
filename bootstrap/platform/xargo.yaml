@@ -22,7 +22,8 @@ spec:
         - Configuration
         - CompositeResourceDefinition
         - Composition
-    providerConfigName: "configuration-platform"
+    providerConfigName: "provider-platform"
+    ingressUrl: argocd.localhost
     source:
       git:
         url: https://github.com/jonasz-lasut/crossplane-presentation.git
