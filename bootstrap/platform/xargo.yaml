@@ -1,0 +1,31 @@
+apiVersion: gitops.platform.upbound.io/v1alpha1
+kind: XArgo
+metadata:
+  name: gitops-argocd
+spec:
+  parameters:
+    resourceExclusions: |
+      - kinds:
+        - ProviderConfigUsage
+        apiGroups:
+        - "*"
+      - kinds:
+        - "Nodes"
+        apiGroups:
+        - "*"
+    resourceInclusions: |
+      - apiGroups:
+        - "*"
+        kinds:
+        - Provider
+        - Function
+        - Configuration
+        - CompositeResourceDefinition
+        - Composition
+    providerConfigName: "configuration-platform"
+    source:
+      git:
+        url: https://github.com/jonasz-lasut/crossplane-presentation.git
+        path: platform
+        ref:
+          name: HEAD

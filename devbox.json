@@ -7,7 +7,9 @@
     "crossplane-cli@1.16.0",
     "kubectl@1.30.2",
     "argocd@2.11.4",
-    "marp-cli@latest"
+    "marp-cli@latest",
+    "envsubst@latest",
+    "gum@latest"
   ],
   "shell": {
     "init_hook": [
@@ -15,9 +17,9 @@
       "source <(just --completions $SHELL_NAME)"
     ],
     "scripts": {
-      "setup":           ["just setup"],
-      "teardown":        ["just teardown"],
-      "argocd-password": ["just get-argocd-password"]
+      "setup":               ["just setup"],
+      "teardown":            ["just teardown"],
+      "get-argocd-password": ["just get-argocd-password"]
     }
   }
 }
