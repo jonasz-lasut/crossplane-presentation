@@ -1,0 +1,16 @@
+key:
+  components:
+    - name: base-platform-infrastructure
+      namespace: upbound-system
+      server: https://kubernetes.default.svc
+      project: default
+      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
+      version: init
+      folder: "platform/crossplane/"
+    - name: gcp-infrastructure
+      namespace: upbound-system
+      server: https://kubernetes.default.svc
+      project: default
+      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
+      version: init
+      folder: "platform/gcp/"
