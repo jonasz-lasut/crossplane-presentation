@@ -4,8 +4,8 @@ set shell := ["bash", "-uc"]
 argocd_port := "30080"
 timeout := "120s"
 
-# List tasks
 # targets marked with * are main targets
+# List tasks
 default:
   just --list --unsorted
 
@@ -14,7 +14,7 @@ _setup-kind cluster_name='crossplane-cluster':
   #!/usr/bin/env bash
   set -euo pipefail
 
-  envsubst < kind-config.yaml | kind create cluster --config - --wait {{timeout}}
+  envsubst < bootstrap/cluster/config.yaml | kind create cluster --config - --wait {{timeout}}
   kubectl config use-context kind-{{cluster_name}}
 
 # Setup universal crossplane
@@ -34,30 +34,26 @@ _setup-crossplane xp_namespace='crossplane-system':
 # Setup ArgoCD and patch service to nodePort {{argocd_port}}
 _setup-argocd:
   #!/usr/bin/env bash
-  if kubectl get namespace argocd > /dev/null 2>&1; then
-    echo "Namespace argocd already exists"
-  else
-    echo "Creating namespace argocd"
-    kubectl create namespace argocd
-  fi
+  kubectl apply -f bootstrap/crossplane/configuration-argocd.yaml
+  gum spin --title "Waiting for ArgoCD configuration 🐙" -- kubectl wait --for=condition=healthy --timeout=60s configuration.pkg.crossplane.io/configuration-argocd
+  kubectl apply -f bootsrap/platform/xargo.yaml
 
-  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-  kubectl wait --for condition=Available=True --timeout={{timeout}} deployment/argocd-server --namespace argocd
-  kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
-  kubectl patch svc argocd-server -n argocd --type merge --type='json' -p='[{"op": "replace", "path": "/spec/ports/0/nodePort", "value": {{argocd_port}}}]'
-
-# Setup ArgoCD application of applications and configure configmap for crossplane tracking
-_bootstrap-argocd:
-  kubectl apply -f argocd.bootstrap.yaml
-
-# * Setup development environment
-setup cluster_name='crossplane-cluster' xp_namespace='crossplane-system': _setup-kind _setup-crossplane _setup-argocd _bootstrap-argocd get-argocd-password
+# *
+# Setup development environment
+setup cluster_name='crossplane-cluster' xp_namespace='crossplane-system': _setup-kind _setup-crossplane _setup-argocd
 
 # Read ArgoCD admin password from initial secret
 get-argocd-password:
   #!/usr/bin/env bash
   echo ArgoCD admin password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
 
-# * Destroy development cluster
+# *
+# Destroy development cluster
 teardown cluster_name='crossplane-cluster':
   kind delete clusters {{cluster_name}}
+
+# *
+# Serve MARP presentation
+serve-presentation:
+  #!/usr/bin/env bash
+  marp --html=true --server docs/presentation/
