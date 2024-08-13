@@ -22,6 +22,10 @@ spec:
         - Configuration
         - CompositeResourceDefinition
         - Composition
+      - apiGroups:
+        - "argoproj.io"
+        kinds:
+        - Application
     providerConfigName: "provider-platform"
     ingressUrl: argocd.localhost
     source:
