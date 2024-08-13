@@ -14,3 +14,10 @@ key:
       repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
       version: init
       folder: "platform/gcp/"
+    - name: argocd-applications
+      namespace: argocd
+      server: https://kubernetes.default.svc
+      project: default
+      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
+      version: init
+      folder: "platform/cluster/"

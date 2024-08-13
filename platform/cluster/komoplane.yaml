@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: komoplane
+spec:
+  project: default
+  source:
+    chart: komoplane
+    repoURL: https://helm-charts.komodor.io
+    targetRevision: 1.16.1
+    helm:
+      releaseName: komoplane
+      valuesObject:
+        ingress:
+          enabled: true
+          className: nginx
+          hosts:
+            - host: komoplane.localhost
+              paths:
+                - path: /
+                  pathType: ImplementationSpecific
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: komoplane-system
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
