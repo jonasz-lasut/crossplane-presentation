@@ -636,54 +636,6 @@
           "store_path": "/nix/store/p0h1mc9d5anw28rihmqnqgv4djswm9iz-kyverno-chainsaw-0.2.3"
         }
       }
-    },
-    "marp-cli@latest": {
-      "last_modified": "2024-07-12T10:50:49Z",
-      "resolved": "github:NixOS/nixpkgs/8b5a3d5a1d951344d683b442c0739010b80039db#marp-cli",
-      "source": "devbox-search",
-      "version": "3.4.0",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/qc9p22vywmhcyya4lpjfp885ya14mba6-marp-cli-3.4.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/qc9p22vywmhcyya4lpjfp885ya14mba6-marp-cli-3.4.0"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/sa7xz7qhqimmsmbnsjcm12akcfs5fk8a-marp-cli-3.4.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/sa7xz7qhqimmsmbnsjcm12akcfs5fk8a-marp-cli-3.4.0"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/bpwzs0020hcpijcxaxdjx2lzlcmd5rpv-marp-cli-3.4.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/bpwzs0020hcpijcxaxdjx2lzlcmd5rpv-marp-cli-3.4.0"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/9bx0gk1phwr1bi37207xnbdypdnx62b7-marp-cli-3.4.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/9bx0gk1phwr1bi37207xnbdypdnx62b7-marp-cli-3.4.0"
-        }
-      }
     }
   }
 }

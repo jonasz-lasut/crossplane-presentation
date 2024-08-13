@@ -64,6 +64,12 @@ get-argocd-password:
   echo ArgoCD admin password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
 
 # *
+# Create GCP credentials secret
+generate-gcp-credentials secret_file xp_namespace='upbound-system' secret_name='emerging-tech-secret':
+  #!/usr/bin/env bash
+  kubectl create secret generic {{secret_name}} -n {{xp_namespace}} --from-file=creds=./{{secret_file}}
+
+# *
 # Destroy development cluster
 teardown cluster_name='crossplane-cluster':
   kind delete clusters {{cluster_name}}
