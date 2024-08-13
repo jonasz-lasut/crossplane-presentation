@@ -7,7 +7,6 @@
     "crossplane-cli@1.16.0",
     "kubectl@1.30.2",
     "argocd@2.11.4",
-    "marp-cli@latest",
     "envsubst@latest",
     "gum@latest",
     "jq@latest"

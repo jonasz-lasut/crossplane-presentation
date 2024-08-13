@@ -1,0 +1,12 @@
+apiVersion: gcp.upbound.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: emerging-tech-provider
+spec:
+  projectID: p-s-emerging-tech-n9tj
+  credentials:
+    source: Secret
+    secretRef:
+      namespace: upbound-system
+      name: emerging-tech-secret
+      key: creds
