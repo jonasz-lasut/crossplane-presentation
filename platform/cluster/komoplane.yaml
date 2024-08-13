@@ -7,7 +7,7 @@ spec:
   source:
     chart: komoplane
     repoURL: https://helm-charts.komodor.io
-    targetRevision: 1.16.1
+    targetRevision: 0.1.5
     helm:
       releaseName: komoplane
       valuesObject:
