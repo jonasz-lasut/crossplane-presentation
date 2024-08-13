@@ -7,13 +7,11 @@ key:
       repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
       version: init
       folder: "platform/crossplane/"
-    - name: gcp-infrastructure
-      namespace: upbound-system
-      server: https://kubernetes.default.svc
-      project: default
-      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
-      version: init
-      folder: "platform/gcp/"
+    ###
+    # Normally this would also be handled by Crossplane primitives not ArgoCD applications
+    # The point of that would be to force dev/infra teams to use platform team's configurations
+    # However there was no time to prepare that for the initial demo
+    ###
     - name: argocd-applications
       namespace: argocd
       server: https://kubernetes.default.svc
