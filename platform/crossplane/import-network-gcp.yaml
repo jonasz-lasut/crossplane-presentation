@@ -3,7 +3,7 @@ kind: Network
 metadata:
   name: emerging-tech-network
   labels:
-    networks.gcp.platform.upbound.io/network-id: shared-vpc-emerging-tech
+    networks.gcp.platform.upbound.io/network-id: emerging-tech-network
   annotations:
     crossplane.io/external-name: shared-vpc-emerging-tech
 spec:
