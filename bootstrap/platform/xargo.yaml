@@ -11,21 +11,9 @@ spec:
         - "*"
       - kinds:
         - "Nodes"
+        - "Secrets"
         apiGroups:
         - "*"
-    resourceInclusions: |
-      - apiGroups:
-        - "*"
-        kinds:
-        - Provider
-        - Function
-        - Configuration
-        - CompositeResourceDefinition
-        - Composition
-      - apiGroups:
-        - "argoproj.io"
-        kinds:
-        - Application
     providerConfigName: "provider-platform"
     ingressUrl: argocd.localhost
     source:
