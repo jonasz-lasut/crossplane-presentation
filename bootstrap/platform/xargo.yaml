@@ -1,7 +1,7 @@
 apiVersion: gitops.platform.upbound.io/v1alpha1
 kind: XArgo
 metadata:
-  name: gitops-argocd
+  name: platform-argocd
 spec:
   parameters:
     resourceExclusions: |
@@ -25,7 +25,7 @@ spec:
     #     kinds:
     #     - SQLInstances
     #     - Networks
-    providerConfigName: "provider-platform"
+    providerConfigName: provider-platform
     ingressUrl: argocd.localhost
     operators:
       argocd:
