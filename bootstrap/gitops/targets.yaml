@@ -6,6 +6,13 @@ key:
       project: default
       repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
       version: init
+      folder: "platform/base/"
+    - name: crossplane-infrastructure
+      namespace: upbound-system
+      server: https://kubernetes.default.svc
+      project: default
+      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
+      version: init
       folder: "platform/crossplane/"
     ###
     # Normally this would also be handled by Crossplane primitives not ArgoCD applications
