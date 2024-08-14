@@ -27,9 +27,6 @@ spec:
     #     - Networks
     providerConfigName: provider-platform
     ingressUrl: argocd.localhost
-    operators:
-      argocd:
-        version: "7.4.3"
     source:
       git:
         url: https://github.com/jonasz-lasut/crossplane-presentation.git
