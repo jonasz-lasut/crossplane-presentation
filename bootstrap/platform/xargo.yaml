@@ -5,18 +5,26 @@ metadata:
 spec:
   parameters:
     resourceExclusions: |
-      - kinds:
-        - ProviderConfigUsage
-        apiGroups:
+      - apiGroups:
         - "*"
-      - kinds:
+        kinds:
+        - ProviderConfigUsage
+      - apiGroups:
+        - "*"
+        kinds:
         - "Nodes"
         - "Secrets"
-        apiGroups:
-        - "*"
     # resourceInclusions: |
-    #   - kinds:
+    #   - apiGroups:
+    #     - "*"
+    #     kinds:
+    #     - Configurations
+    #     - ProviderConfigs
+    #   - apiGroups:
+    #     - "*"
+    #     kinds:
     #     - SQLInstances
+    #     - Networks
     providerConfigName: "provider-platform"
     ingressUrl: argocd.localhost
     operators:
