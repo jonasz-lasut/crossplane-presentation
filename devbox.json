@@ -9,7 +9,8 @@
     "argocd@2.11.4",
     "envsubst@latest",
     "gum@latest",
-    "jq@latest"
+    "jq@latest",
+    "bat@latest"
   ],
   "shell": {
     "init_hook": [
