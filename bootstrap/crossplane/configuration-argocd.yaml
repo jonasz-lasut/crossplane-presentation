@@ -1,6 +1,8 @@
-  apiVersion: pkg.crossplane.io/v1
-  kind: Configuration
-  metadata:
-    name: configuration-argocd
-  spec:
-    package: xpkg.upbound.io/upbound/configuration-gitops-argocd:v0.9.0
+### Update to v0.10.0 when release is created instead of using `dirty release`
+
+apiVersion: pkg.crossplane.io/v1
+kind: Configuration
+metadata:
+  name: configuration-argocd
+spec:
+  package: xpkg.upbound.io/upbound/configuration-gitops-argocd:v0.9.0-2.g4f9649e

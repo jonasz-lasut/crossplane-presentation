@@ -25,6 +25,10 @@ spec:
     #     kinds:
     #     - SQLInstances
     #     - Networks
+    #   - apiGroups:
+    #     - "database.jlasut.io"
+    #     kinds:
+    #     - "XAtlas"
     providerConfigName: provider-platform
     ingressUrl: argocd.localhost
     source:
