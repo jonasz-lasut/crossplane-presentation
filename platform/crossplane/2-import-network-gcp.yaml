@@ -6,7 +6,7 @@ metadata:
     networks.gcp.platform.upbound.io/network-id: emerging-tech-network
   annotations:
     crossplane.io/external-name: shared-vpc-emerging-tech
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   managementPolicies: ["Observe"]
   providerConfigRef:
