@@ -18,4 +18,4 @@ key:
       project: default
       repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
       version: init
-      folder: "platform/cluster/"
+      folder: "platform/apps/"

@@ -55,9 +55,6 @@ _setup-argocd:
   kubectl annotate ingress argocd-server -n argocd "nginx.ingress.kubernetes.io/force-ssl-redirect"="true" "nginx.ingress.kubernetes.io/backend-protocol"="HTTPS"
 
 # *
-# Setup development environment
-setup cluster_name='crossplane-cluster' xp_namespace='upbound-system': _setup-kind _setup-crossplane _setup-configurations _setup-providers _setup-argocd
-
 # Read ArgoCD admin password from initial secret
 get-argocd-password:
   #!/usr/bin/env bash
@@ -68,6 +65,16 @@ get-argocd-password:
 generate-gcp-credentials secret_file xp_namespace='upbound-system' secret_name='emerging-tech-secret':
   #!/usr/bin/env bash
   kubectl create secret generic {{secret_name}} -n {{xp_namespace}} --from-file=creds=./{{secret_file}}
+
+# *
+# Create psql password secret
+generate-psql-password secret_name='psqlsecret':
+  #!/usr/bin/env bash
+  kubectl create secret generic {{secret_name}} --from-literal=password=$(gum input --password)
+
+# *
+# Setup development environment
+setup cluster_name='crossplane-cluster' xp_namespace='upbound-system': _setup-kind _setup-crossplane _setup-configurations _setup-providers _setup-argocd
 
 # *
 # Destroy development cluster
