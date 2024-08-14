@@ -16,3 +16,5 @@ You can access ArgoCD dashboard at ingress configured in `bootstrap/platform/xar
 
 Create GCP provider secret as documented in https://docs.crossplane.io/latest/getting-started/provider-gcp/#create-a-kubernetes-secret-with-the-gcp-credentials.
 You can use `just generate-gcp-credentials <credentials-file-name>` to create it.
+
+Create Postgresql password secret using `just generate-
