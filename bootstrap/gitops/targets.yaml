@@ -3,14 +3,14 @@ key:
     - name: base-platform-infrastructure
       namespace: upbound-system
       server: https://kubernetes.default.svc
-      project: default
+      project: base-platform
       repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
       version: init
       folder: "platform/base/"
     - name: crossplane-infrastructure
       namespace: upbound-system
       server: https://kubernetes.default.svc
-      project: default
+      project: crossplane
       repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
       version: init
       folder: "platform/crossplane/"
@@ -19,10 +19,10 @@ key:
     # The point of that would be to force dev/infra teams to use platform team's configurations
     # However there was no time to prepare that for the initial demo
     ###
-    - name: argocd-applications
-      namespace: argocd
-      server: https://kubernetes.default.svc
-      project: default
-      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
-      version: init
-      folder: "platform/apps/"
+    # - name: argocd-applications
+    #   namespace: argocd
+    #   server: https://kubernetes.default.svc
+    #   project: application
+    #   repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
+    #   version: init
+    #   folder: "platform/apps/"

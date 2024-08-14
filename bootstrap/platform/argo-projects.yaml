@@ -1,0 +1,53 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: base-platform
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: 'pkg.crossplane.io'
+    kind: 'Configuration'
+  - group: '*'
+    kind: 'ProviderConfig'
+  destinations:
+  - namespace: 'upbound-system'
+    server: 'https://kubernetes.default.svc'
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: crossplane
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: 'gcp.platform.upbound.io'
+    kind: 'SQLInstance'
+  - group: 'compute.gcp.upbound.io'
+    kind: 'Network'
+  - group: 'database.jlasut.io'
+    kind: 'XAtlas'
+  destinations:
+  - namespace: 'upbound-system'
+    server: 'https://kubernetes.default.svc'
+  sourceRepos:
+  - '*'
+---
+###
+# Make it more strict in the future
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: application
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: 'https://kubernetes.default.svc'
+  sourceRepos:
+  - '*'
+###
