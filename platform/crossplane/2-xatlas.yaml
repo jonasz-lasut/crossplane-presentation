@@ -1,8 +1,10 @@
-apiVersion: database.jlasut.io/v1alpha1
-kind: XAtlas
-metadata:
-  name: atlas-operator
-spec:
-  parameters:
-    providerConfigName: provider-platform
-    prewarmDB: true
+### Requires xargo to use provider-helm@>=0.18.1, currently can't be used
+
+# apiVersion: database.jlasut.io/v1alpha1
+# kind: XAtlas
+# metadata:
+#   name: atlas-operator
+# spec:
+#   parameters:
+#     providerConfigName: provider-platform
+#     prewarmDB: true
