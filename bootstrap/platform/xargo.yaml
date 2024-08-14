@@ -14,6 +14,9 @@ spec:
         - "Secrets"
         apiGroups:
         - "*"
+    # resourceInclusions: |
+    #   - kinds:
+    #     - SQLInstances
     providerConfigName: "provider-platform"
     ingressUrl: argocd.localhost
     source:

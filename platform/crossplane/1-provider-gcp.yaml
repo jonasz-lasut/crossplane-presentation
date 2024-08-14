@@ -2,6 +2,8 @@ apiVersion: gcp.upbound.io/v1beta1
 kind: ProviderConfig
 metadata:
   name: emerging-tech-provider
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   projectID: p-s-emerging-tech-n9tj
   credentials:
