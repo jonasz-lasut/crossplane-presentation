@@ -14,21 +14,24 @@ spec:
         kinds:
         - "Nodes"
         - "Secrets"
-    # resourceInclusions: |
-    #   - apiGroups:
-    #     - "*"
-    #     kinds:
-    #     - Configurations
-    #     - ProviderConfigs
-    #   - apiGroups:
-    #     - "*"
-    #     kinds:
-    #     - SQLInstances
-    #     - Networks
-    #   - apiGroups:
-    #     - "database.jlasut.io"
-    #     kinds:
-    #     - "XAtlas"
+    resourceInclusions: |
+      - apiGroups:
+        - "*"
+        kinds:
+        - Configurations
+        - ProviderConfigs
+      - apiGroups:
+        - "gcp.platform.upbound.io"
+        kinds:
+        - SQLInstances
+      - apiGroups:
+        - "compute.gcp.upbound.io"
+        kinds:
+        - Networks
+      - apiGroups:
+        - "database.jlasut.io"
+        kinds:
+        - "XAtlas"
     providerConfigName: provider-platform
     ingressUrl: argocd.localhost
     source:
