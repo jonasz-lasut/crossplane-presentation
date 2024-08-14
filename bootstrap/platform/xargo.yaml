@@ -18,16 +18,16 @@ spec:
       - apiGroups:
         - "*"
         kinds:
-        - Configurations
-        - ProviderConfigs
+        - Configuration
+        - ProviderConfig
       - apiGroups:
         - "gcp.platform.upbound.io"
         kinds:
-        - SQLInstances
+        - SQLInstance
       - apiGroups:
         - "compute.gcp.upbound.io"
         kinds:
-        - Networks
+        - Network
       - apiGroups:
         - "database.jlasut.io"
         kinds:
