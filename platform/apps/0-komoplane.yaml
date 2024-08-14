@@ -25,5 +25,7 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: komoplane-system
   syncPolicy:
+    automated:
+      selfHeal: true
     syncOptions:
     - CreateNamespace=true
