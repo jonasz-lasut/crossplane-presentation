@@ -1,10 +1,8 @@
-### Requires xargo to use provider-helm@>=0.18.1, currently can't be used
-
-# apiVersion: pkg.crossplane.io/v1
-# kind: Configuration
-# metadata:
-#   name: configuration-atlas-operator
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "0"
-# spec:
-#   package: xpkg.upbound.io/judasz/configuration-atlas-operator:v0.2.0
+apiVersion: pkg.crossplane.io/v1
+kind: Configuration
+metadata:
+  name: configuration-atlas-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  package: xpkg.upbound.io/judasz/configuration-atlas-operator:v0.2.0
