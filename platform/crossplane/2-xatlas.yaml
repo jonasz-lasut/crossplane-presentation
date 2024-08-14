@@ -2,6 +2,8 @@ apiVersion: database.jlasut.io/v1alpha1
 kind: XAtlas
 metadata:
   name: atlas-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   parameters:
     providerConfigName: provider-platform
