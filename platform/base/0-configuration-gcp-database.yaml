@@ -1,8 +1,8 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Configuration
 metadata:
-  annotations:
-    argocd.argoproj.io/hook: PreSync
   name: configuration-gcp-database
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   package: xpkg.upbound.io/upbound/configuration-gcp-database:v0.5.0
