@@ -1,9 +1,8 @@
 # Crossplane as a Universal Control Plane
 
 ## Requirements
-- docker
 - [devbox](https://www.jetify.com/devbox/docs/quickstart/)
-- GCP account, project and service account with enough permissions to deploy databases
+- GCP account, project and GKE cluster
 
 ## Step by step guide
 To start working on the project install of the dependencies using `devbox install`, after that you can open interactive shell with `devbox shell`.
