@@ -6,3 +6,5 @@ spec:
   serviceAccountTemplate:
     metadata:
       name: gke-crossplane
+      annotations:
+        iam.gke.io/gcp-service-account: gke-crossplane@p-s-emerging-tech-n9tj.iam.gserviceaccount.com
