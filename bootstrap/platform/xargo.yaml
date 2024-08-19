@@ -15,7 +15,7 @@ spec:
         - "Nodes"
         - "Secrets"
     providerConfigName: provider-platform
-    ingressUrl: argocd.localhost
+    ingressUrl: argocd.34.54.201.98.nip.io
     source:
       git:
         url: https://github.com/jonasz-lasut/crossplane-presentation.git

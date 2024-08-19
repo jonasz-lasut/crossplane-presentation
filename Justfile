@@ -19,13 +19,13 @@ _setup-crossplane :
 
 # Setup crossplane configurations
 _setup-configurations:
-  kubectl apply -f bootstrap/crossplane/configuration-argocd.yaml
+  kubectl apply -f bootstrap/platform/configuration-argocd.yaml
   gum spin --title "Waiting for ArgoCD configuration 🐙" -- kubectl wait --for=condition=healthy --timeout={{timeout}} configuration.pkg.crossplane.io/configuration-argocd && sleep 10
 
 # Setup crossplane providers
 _setup-providers:
   #!/usr/bin/env bash
-  kubectl apply -f bootstrap/crossplane/provider-*.yaml
+  kubectl apply -f bootstrap/platform/provider-*.yaml
 
   cat <<EOF | kubectl apply -f -
   apiVersion: rbac.authorization.k8s.io/v1
