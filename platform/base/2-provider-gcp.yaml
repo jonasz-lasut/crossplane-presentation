@@ -7,6 +7,4 @@ metadata:
 spec:
   projectID: p-s-emerging-tech-n9tj
   credentials:
-    impersonateServiceAccount:
-      name: gke-crossplane@p-s-emerging-tech-n9tj.iam.gserviceaccount.com
-    source: ImpersonateServiceAccount
+    source: InjectedCredentials
