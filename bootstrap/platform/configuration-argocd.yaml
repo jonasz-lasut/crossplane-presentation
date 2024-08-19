@@ -3,4 +3,4 @@ kind: Configuration
 metadata:
   name: configuration-argocd
 spec:
-  package: xpkg.upbound.io/judasz/configuration-gitops-argocd:v0.1.0-2.g0e0e2a7
+  package: xpkg.upbound.io/judasz/configuration-gitops-argocd:v0.3.0

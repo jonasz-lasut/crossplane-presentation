@@ -13,7 +13,4 @@ This will create a local KinD cluster with Crossplane and ArgoCD installed. Appl
 
 You can access ArgoCD dashboard at ingress configured in `bootstrap/platform/xargo.yaml` (by default argocd.localhost) using username `admin` and password `$ just get-argocd-password`.
 
-Create GCP provider secret as documented in https://docs.crossplane.io/latest/getting-started/provider-gcp/#create-a-kubernetes-secret-with-the-gcp-credentials.
-You can use `just generate-gcp-credentials <credentials-file-name>` to create it.
-
-Create Postgresql password secret using `just generate-
+TODO: change project ID dynamically from placeholder instead of hardcoding (`sed`?)
