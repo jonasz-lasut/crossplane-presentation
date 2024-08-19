@@ -4,5 +4,5 @@ metadata:
   name: provider-gcp-sql
 spec:
   package: xpkg.upbound.io/upbound/provider-gcp-sql:v0.41.1
-  controllerConfigRef:
+  runtimeConfigRef:
     name: emerging-tech-controller-config
