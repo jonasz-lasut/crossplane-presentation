@@ -32,6 +32,8 @@ spec:
     kind: 'Network'
   - group: 'database.jlasut.io'
     kind: 'XAtlas'
+  - group: 'secrets.jlasut.io'
+    kind: 'XCESS'
   destinations:
   - namespace: 'upbound-system'
     server: 'https://kubernetes.default.svc'
