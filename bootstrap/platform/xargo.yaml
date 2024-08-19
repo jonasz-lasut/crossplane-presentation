@@ -1,4 +1,4 @@
-apiVersion: gitops.platform.upbound.io/v1alpha1
+apiVersion: platform.jlasut.io/v1alpha1
 kind: XArgo
 metadata:
   name: platform-argocd
