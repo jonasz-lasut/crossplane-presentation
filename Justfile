@@ -29,11 +29,40 @@ _setup-providers xp_namespace='upbound-system':
   #!/usr/bin/env bash
   kubectl apply -f bootstrap/crossplane/provider-*.yaml
 
+  cat <<EOF | kubectl apply -f -
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRole
+  metadata:
+    name: external-secrets-admin
+  rules:
+    - apiGroups:
+        - external-secrets.io
+      resources:
+        - externalsecrets
+        - secretstores
+        - clustersecretstores
+        - pushsecrets
+      verbs:
+        - '*'
+    - apiGroups:
+        - generators.external-secrets.io
+      resources:
+        - acraccesstokens
+        - ecrauthorizationtokens
+        - fakes
+        - gcraccesstokens
+        - passwords
+        - vaultdynamicsecrets
+      verbs:
+        - '*'
+  EOF
+
   SA=$(kubectl -n {{xp_namespace}} get sa -o name|grep provider-helm | sed -e "s|serviceaccount\/|{{xp_namespace}}:|g")
   kubectl create clusterrolebinding provider-helm-admin-binding --clusterrole cluster-admin --serviceaccount="${SA}"
 
   SA=$(kubectl -n {{xp_namespace}} get sa -o name|grep provider-kubernetes | sed -e "s|serviceaccount\/|{{xp_namespace}}:|g")
   kubectl create clusterrolebinding provider-kubernetes-admin-binding --clusterrole cluster-admin --serviceaccount="${SA}"
+  kubectl create clusterrolebinding provider-kubernetes-external-secrets-binding --clusterrole external-secrets-admin --serviceaccount="${SA}"
   echo "Added provider-kubernetes and provider-helm Service Account permissions"
 
 # Setup ArgoCD with ingress

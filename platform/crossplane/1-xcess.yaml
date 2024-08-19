@@ -1,0 +1,22 @@
+apiVersion: secrets.jlasut.io/v1alpha1
+kind: XCESS
+metadata:
+  name: emerging-tech-secrets-store
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  parameters:
+    providerConfigName: provider-platform
+    createWorkloadIdentityServiceAccount: false
+    workloadIdentityName: "gcp-external-secrets-sa@p-s-emerging-tech-n9tj.iam.gserviceaccount.com"
+    secretProvider:
+      name: gcp
+      gcp:
+        projectID: p-s-emerging-tech-n9tj
+    secretStoreName: emerging-tech-secrets
+    operators:
+      eso:
+        secrets:
+          - fromSecret: test
+            toSecret: test
+            toNamespace: external-secrets
