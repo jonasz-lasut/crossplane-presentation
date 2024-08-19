@@ -2,6 +2,7 @@ set export
 set shell := ["bash", "-uc"]
 
 timeout := "120s"
+xp_namespace := "upbound-system"
 
 # targets marked with * are main targets
 # List tasks
@@ -9,7 +10,7 @@ default:
   just --list --unsorted
 
 # Setup universal crossplane
-_setup-crossplane xp_namespace='upbound-system':
+_setup-crossplane :
   #!/usr/bin/env bash
   kubectl create namespace {{xp_namespace}}
   helm repo add upbound-stable https://charts.upbound.io/stable && helm repo update
@@ -17,12 +18,12 @@ _setup-crossplane xp_namespace='upbound-system':
   kubectl wait --for condition=Available=True --timeout={{timeout}} deployment/crossplane --namespace {{xp_namespace}}
 
 # Setup crossplane configurations
-_setup-configurations xp_namespace='upbound-system':
+_setup-configurations:
   kubectl apply -f bootstrap/crossplane/configuration-argocd.yaml
-  gum spin --title "Waiting for ArgoCD configuration 🐙" -- kubectl wait --for=condition=healthy --timeout=120s configuration.pkg.crossplane.io/configuration-argocd && sleep 10
+  gum spin --title "Waiting for ArgoCD configuration 🐙" -- kubectl wait --for=condition=healthy --timeout={{timeout}} configuration.pkg.crossplane.io/configuration-argocd && sleep 10
 
 # Setup crossplane providers
-_setup-providers xp_namespace='upbound-system':
+_setup-providers:
   #!/usr/bin/env bash
   kubectl apply -f bootstrap/crossplane/provider-*.yaml
 
@@ -84,9 +85,9 @@ generate-psql-password secret_name='psqlsecret':
 
 # *
 # Setup development environment
-setup cluster_name='crossplane-cluster' xp_namespace='upbound-system': _setup-crossplane _setup-configurations _setup-providers _setup-argocd
+setup: _setup-crossplane _setup-configurations _setup-providers _setup-argocd
 
 # *
-# Destroy development cluster
-teardown cluster_name='crossplane-cluster':
-  kind delete clusters {{cluster_name}}
+# Destroy everything on the development cluster
+teardown:
+  echo "cleanup logic"
