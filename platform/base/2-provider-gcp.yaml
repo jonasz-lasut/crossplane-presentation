@@ -3,12 +3,8 @@ kind: ProviderConfig
 metadata:
   name: emerging-tech-provider
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   projectID: p-s-emerging-tech-n9tj
   credentials:
-    source: Secret
-    secretRef:
-      namespace: upbound-system
-      name: emerging-tech-secret
-      key: creds
+    source: InjectedIdentity
