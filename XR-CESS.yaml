@@ -1,0 +1,23 @@
+apiVersion: ess.jlasut.io/v1alpha1
+kind: XCESS
+metadata:
+  name: gcp-external-secrets
+spec:
+  parameters:
+    providerConfigName: gcp-external-secrets
+    createWorkloadIdentityServiceAccount: false
+    secretProvider:
+      name: gcp
+      gcp:
+        projectID: p-s-emerging-tech-n9tj
+    secretStoreName: gcp-external-secrets
+    workloadIdentityName: "gcp-external-secrets-sa@p-s-emerging-tech-n9tj.iam.gserviceaccount.com"  # Could be empty because we don't create the ServiceAccount
+    operators:
+      eso:
+        secrets:
+          - fromSecret: test
+            toSecret: test
+            toNamespace: external-secrets
+          - fromSecret: test2
+            toSecret: test2
+            toNamespace: external-secrets
