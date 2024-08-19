@@ -7,6 +7,8 @@ spec:
   clusterResourceWhitelist:
   - group: 'pkg.crossplane.io'
     kind: 'Configuration'
+  - group: 'pkg.crossplane.io'
+    kind: 'Provider'
   - group: '*'
     kind: 'ProviderConfig'
   destinations:
