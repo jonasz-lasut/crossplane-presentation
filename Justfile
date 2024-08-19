@@ -43,9 +43,6 @@ _setup-argocd:
   gum spin --title "Waiting for ArgoCD XR 🐙" -- kubectl wait --timeout=300s --for=condition=Ready xargo/platform-argocd && kubectl wait --for=condition=available=true deployments --all -n argocd
   kubectl apply -f bootstrap/platform/argo-projects.yaml
 
-  # In production setup it would be handled by Kyverno or similar
-  kubectl annotate ingress argocd-server -n argocd "nginx.ingress.kubernetes.io/force-ssl-redirect"="true" "nginx.ingress.kubernetes.io/backend-protocol"="HTTPS"
-
 # *
 # Read ArgoCD admin password from initial secret
 get-argocd-password:
