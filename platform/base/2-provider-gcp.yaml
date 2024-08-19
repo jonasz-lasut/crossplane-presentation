@@ -8,5 +8,5 @@ spec:
   projectID: p-s-emerging-tech-n9tj
   credentials:
     impersonateServiceAccount:
-      name: my-default@my-project.iam.gserviceaccount.com
+      name: gke-crossplane@p-s-emerging-tech-n9tj.iam.gserviceaccount.com
     source: ImpersonateServiceAccount
