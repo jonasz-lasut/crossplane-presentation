@@ -1,54 +1,6 @@
 {
   "lockfile_version": "1",
   "packages": {
-    "argocd@2.11.4": {
-      "last_modified": "2024-07-07T07:43:47Z",
-      "resolved": "github:NixOS/nixpkgs/b60793b86201040d9dee019a05089a9150d08b5b#argocd",
-      "source": "devbox-search",
-      "version": "2.11.4",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/qkk8v68a4d1qnh1d0iwzr58nk0zgnsc5-argocd-2.11.4",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/qkk8v68a4d1qnh1d0iwzr58nk0zgnsc5-argocd-2.11.4"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/16j9yzfjlhmj2dcqv1bh8lc7knjzh1m4-argocd-2.11.4",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/16j9yzfjlhmj2dcqv1bh8lc7knjzh1m4-argocd-2.11.4"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/sr2jjs0ya7jv71jpiw9h7pj430rh0j6q-argocd-2.11.4",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/sr2jjs0ya7jv71jpiw9h7pj430rh0j6q-argocd-2.11.4"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/vm5h22dgzwc9yl2rz6abcg3ccdxw1zzl-argocd-2.11.4",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/vm5h22dgzwc9yl2rz6abcg3ccdxw1zzl-argocd-2.11.4"
-        }
-      }
-    },
     "bat@latest": {
       "last_modified": "2024-07-24T00:53:51Z",
       "resolved": "github:NixOS/nixpkgs/4f02464258baaf54992debfd010a7a3662a25536#bat",
@@ -454,54 +406,6 @@
             }
           ],
           "store_path": "/nix/store/kj521i043g6pmx6nqckygg5z8wk5h90c-just-1.29.1"
-        }
-      }
-    },
-    "kind@0.23.0": {
-      "last_modified": "2024-07-07T07:43:47Z",
-      "resolved": "github:NixOS/nixpkgs/b60793b86201040d9dee019a05089a9150d08b5b#kind",
-      "source": "devbox-search",
-      "version": "0.23.0",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/kn3x8vljiwhbz2p9fh6dhvff2r57m892-kind-0.23.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/kn3x8vljiwhbz2p9fh6dhvff2r57m892-kind-0.23.0"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/pwmwgq2jfnxhzg7n7f4bl7b0pqjdiw5s-kind-0.23.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/pwmwgq2jfnxhzg7n7f4bl7b0pqjdiw5s-kind-0.23.0"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/84yfg589787wmrvcb9i3vchv3l9yrd05-kind-0.23.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/84yfg589787wmrvcb9i3vchv3l9yrd05-kind-0.23.0"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/myyvm5vrs2axpahfw74bgpax6fw7nmxa-kind-0.23.0",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/myyvm5vrs2axpahfw74bgpax6fw7nmxa-kind-0.23.0"
         }
       }
     },

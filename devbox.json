@@ -1,16 +1,15 @@
 {
   "packages": [
-    "kind@0.23.0",
     "kubernetes-helm@3.15.2",
     "just@1.29.1",
     "kyverno-chainsaw@0.2.3",
     "crossplane-cli@1.16.0",
     "kubectl@1.30.2",
-    "argocd@2.11.4",
     "envsubst@latest",
     "gum@latest",
     "jq@latest",
-    "bat@latest"
+    "bat@latest",
+    "path:devbox#google-cloud-sdk"
   ],
   "shell": {
     "init_hook": [

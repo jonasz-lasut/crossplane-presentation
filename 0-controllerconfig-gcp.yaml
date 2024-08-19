@@ -3,6 +3,6 @@ kind: ControllerConfig
 metadata:
   name: emerging-tech-controller-config
   annotations:    
-    iam.gke.io/gcp-service-account: <crossplane-sa>
+    iam.gke.io/gcp-service-account: gke-crossplane@p-s-emerging-tech-n9tj.iam.gserviceaccount.com
 spec:
-  serviceAccountName: <crossplane-sa>
+  serviceAccountName: gke-crossplane

@@ -8,15 +8,6 @@ timeout := "120s"
 default:
   just --list --unsorted
 
-# Create a kind cluster
-_setup-kind cluster_name='crossplane-cluster':
-  #!/usr/bin/env bash
-  set -euo pipefail
-
-  envsubst < bootstrap/cluster/config.yaml | kind create cluster --config - --wait {{timeout}}
-  kubectl config use-context kind-{{cluster_name}}
-  gum spin --title "Waiting for Nginx Ingress controller ⬇️" -- kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
-
 # Setup universal crossplane
 _setup-crossplane xp_namespace='upbound-system':
   #!/usr/bin/env bash
@@ -62,12 +53,7 @@ get-argocd-password:
   echo "🐙 ArgoCD admin password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 -d)"
 
 # *
-# Create GCP credentials secret
-generate-gcp-credentials secret_file xp_namespace='upbound-system' secret_name='emerging-tech-secret':
-  #!/usr/bin/env bash
-  kubectl create secret generic {{secret_name}} -n {{xp_namespace}} --from-file=creds=./{{secret_file}}
-
-# *
+# TODO: switch to external-secret
 # Create psql password secret
 generate-psql-password secret_name='psqlsecret':
   #!/usr/bin/env bash
@@ -75,7 +61,7 @@ generate-psql-password secret_name='psqlsecret':
 
 # *
 # Setup development environment
-setup cluster_name='crossplane-cluster' xp_namespace='upbound-system': _setup-kind _setup-crossplane _setup-configurations _setup-providers _setup-argocd
+setup cluster_name='crossplane-cluster' xp_namespace='upbound-system': _setup-crossplane _setup-configurations _setup-providers _setup-argocd
 
 # *
 # Destroy development cluster
