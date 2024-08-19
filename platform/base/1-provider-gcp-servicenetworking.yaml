@@ -5,4 +5,4 @@ metadata:
 spec:
   package: xpkg.upbound.io/upbound/provider-gcp-servicenetworking:v1.7.0
   runtimeConfigRef:
-    name: emerging-tech-controller-config
+    name: emerging-tech-runtime-config
