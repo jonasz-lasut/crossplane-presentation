@@ -8,7 +8,7 @@ spec:
   parameters:
     providerConfigName: provider-platform
     createWorkloadIdentityServiceAccount: false
-    workloadIdentityName: "gcp-external-secrets-sa@p-s-emerging-tech-n9tj.iam.gserviceaccount.com"
+    workloadIdentityName: "emerging-tech-secrets-sa@p-s-emerging-tech-n9tj.iam.gserviceaccount.com"
     secretProvider:
       name: gcp
       gcp:
