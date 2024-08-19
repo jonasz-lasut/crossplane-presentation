@@ -7,4 +7,6 @@ metadata:
 spec:
   projectID: p-s-emerging-tech-n9tj
   credentials:
-    source: InjectedIdentity
+    impersonateServiceAccount:
+      name: my-default@my-project.iam.gserviceaccount.com
+    source: ImpersonateServiceAccoun
