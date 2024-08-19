@@ -1,8 +1,8 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-gcp-servicenetworking
+  name: upbound-provider-gcp-servicenetworking
 spec:
-  package: xpkg.upbound.io/upbound/provider-gcp-servicenetworking:v1.7.0
+  package: xpkg.upbound.io/upbound/provider-gcp-servicenetworking:v0.41.1
   runtimeConfigRef:
     name: emerging-tech-runtime-config
