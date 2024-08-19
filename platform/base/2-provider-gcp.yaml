@@ -9,4 +9,4 @@ spec:
   credentials:
     impersonateServiceAccount:
       name: my-default@my-project.iam.gserviceaccount.com
-    source: ImpersonateServiceAccoun
+    source: ImpersonateServiceAccount
