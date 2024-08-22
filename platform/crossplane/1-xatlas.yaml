@@ -6,5 +6,5 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   parameters:
-    providerConfigName: provider-platform
+    providerConfigName: emerging-tech-provider
     prewarmDB: true

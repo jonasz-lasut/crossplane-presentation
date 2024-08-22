@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   parameters:
-    providerConfigName: provider-platform
+    providerConfigName: emerging-tech-provider
     createWorkloadIdentityServiceAccount: false
     workloadIdentityName: "emerging-tech-secrets-sa@p-s-emerging-tech-n9tj.iam.gserviceaccount.com"
     secretProvider:
