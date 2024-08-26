@@ -11,7 +11,7 @@ spec:
   backend:
     image: 'ttl.sh/axum_demo_todo:6h'
     port: 8080
-    hostname: demobackend.35.244.128.29.nip.io
+    hostname: demobackend.34.107.215.174.nip.io
   database:
     postgresParameters:
       name: emerging-tech-postgres
@@ -23,7 +23,7 @@ spec:
         create table todos (
           id SERIAL PRIMARY KEY,
           note VARCHAR(255) NOT NULL,
-          status BOOLEAN NOT NULL DEFAULT false,
+          status BOOLEAN NOT NULL DEFAULT false
         );
   secrets: 
     secretStoreName: emerging-tech-secrets
