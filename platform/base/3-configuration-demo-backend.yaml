@@ -5,4 +5,4 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "3"
 spec:
-  package: xpkg.upbound.io/judasz/configuration-demo-backend:v0.1.0-3.g733ba66
+  package: xpkg.upbound.io/judasz/configuration-demo-backend:v0.1.0-4.g34b2ad9
