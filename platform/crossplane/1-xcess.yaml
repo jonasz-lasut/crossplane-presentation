@@ -17,6 +17,6 @@ spec:
     operators:
       eso:
         secrets:
-          - fromSecret: test
-            toSecret: test
+          - fromSecret: demo
+            toSecret: demo
             toNamespace: external-secrets
