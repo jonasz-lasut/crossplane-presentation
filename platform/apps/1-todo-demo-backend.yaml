@@ -3,6 +3,8 @@ kind: DemoBackend
 metadata:
   namespace: todo-app
   name: emerging-tech-todo-demo
+  labels:
+    env: demo
 spec:
   providerConfigName: emerging-tech-provider
   deletionPolicy: Delete
