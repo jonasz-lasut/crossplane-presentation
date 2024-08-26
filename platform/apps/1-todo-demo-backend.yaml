@@ -1,0 +1,31 @@
+apiVersion: application.jlasut.io/v1alpha1
+kind: DemoBackend
+metadata:
+  namespace: todo-app
+  name: emerging-tech-todo-demo
+spec:
+  providerConfigName: emerging-tech-provider
+  deletionPolicy: Delete
+  backend:
+    image: 'ttl.sh/axum_demo_todo:6h'
+    port: 8080
+    hostname: demobackend.127.0.0.1.nip.io
+  database:
+    postgresParameters:
+      name: emerging-tech-postgres
+      network: emerging-tech-network
+      externalSecret: todo-postgres-password
+    databaseSchemas:
+    - name: todos-schema
+      sql: |
+        create table todos (
+          id SERIAL PRIMARY KEY,
+          note VARCHAR(255) NOT NULL,
+          status BOOLEAN NOT NULL DEFAULT false,
+        );
+  secrets: 
+    secretStoreName: external-secret-store
+    externalSecrets:
+    - fromSecret: todo-demo-backend
+      toSecret: todo-configuration
+      version: latest
