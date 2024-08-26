@@ -9,7 +9,8 @@
     "gum@latest",
     "jq@latest",
     "bat@latest",
-    "path:devbox#google-cloud-sdk"
+    "path:devbox#google-cloud-sdk",
+    "argocd@2.11.2"
   ],
   "shell": {
     "init_hook": [
