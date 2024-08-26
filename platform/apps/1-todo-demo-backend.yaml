@@ -11,7 +11,7 @@ spec:
   backend:
     image: 'ttl.sh/axum_demo_todo:6h'
     port: 8080
-    hostname: demobackend.127.0.0.1.nip.io
+    hostname: demobackend.35.244.128.29.nip.io
   database:
     postgresParameters:
       name: emerging-tech-postgres
@@ -26,7 +26,7 @@ spec:
           status BOOLEAN NOT NULL DEFAULT false,
         );
   secrets: 
-    secretStoreName: external-secret-store
+    secretStoreName: emerging-tech-secrets
     externalSecrets:
     - fromSecret: todo-demo-backend
       toSecret: todo-configuration
