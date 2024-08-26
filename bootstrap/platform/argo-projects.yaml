@@ -42,8 +42,6 @@ spec:
   sourceRepos:
   - '*'
 ---
-###
-# Make it more strict in the future
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
@@ -51,11 +49,10 @@ metadata:
   namespace: argocd
 spec:
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+  - group: 'application.jlasut.io'
+    kind: 'DemoBackend'
   destinations:
   - namespace: '*'
     server: 'https://kubernetes.default.svc'
   sourceRepos:
   - '*'
-###
