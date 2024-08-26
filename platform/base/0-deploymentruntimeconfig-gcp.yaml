@@ -3,7 +3,7 @@ kind: DeploymentRuntimeConfig
 metadata:
   name: emerging-tech-runtime-config
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   serviceAccountTemplate:
     metadata:
