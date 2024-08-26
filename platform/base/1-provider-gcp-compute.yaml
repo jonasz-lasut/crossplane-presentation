@@ -1,10 +1,10 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: upbound-provider-gcp-sql
+  name: upbound-provider-gcp-compute
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
-  package: xpkg.upbound.io/upbound/provider-gcp-sql:v0.41.1
+  package: xpkg.upbound.io/upbound/provider-gcp-compute:v1.0.1
   runtimeConfigRef:
     name: emerging-tech-runtime-config
