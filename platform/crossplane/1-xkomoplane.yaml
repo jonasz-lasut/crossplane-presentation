@@ -1,0 +1,12 @@
+apiVersion: platform.jlasut.io/v1alpha1
+kind: XKomoplane
+metadata:
+  name: komoplane-ui
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  parameters:
+    providerConfigName: emerging-tech-provider
+    operators:
+      komoplane:
+        hostname: komoplane.127.0.0.1.nip.io
