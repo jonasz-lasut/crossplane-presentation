@@ -20,7 +20,7 @@ spec:
         kinds:
         - "*"
     providerConfigName: emerging-tech-provider
-    ingressUrl: argocd.34.149.152.182.nip.io # For demo purposes let's use `nip.io` and manually replace IP, could be done with static IP
+    ingressUrl: argocd.127.0.0.1.nip.io # For demo purposes let's use `nip.io` and manually replace IP, could be done with static IP
     source:
       git:
         url: https://github.com/jonasz-lasut/crossplane-presentation.git
