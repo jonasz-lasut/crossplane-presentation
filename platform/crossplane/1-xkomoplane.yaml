@@ -9,4 +9,4 @@ spec:
     providerConfigName: emerging-tech-provider
     operators:
       komoplane:
-        hostname: komoplane.127.0.0.1.nip.io
+        hostname: komoplane.34.149.232.80.nip.io
