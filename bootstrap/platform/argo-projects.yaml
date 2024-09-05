@@ -34,8 +34,12 @@ spec:
     kind: 'XAtlas'
   - group: 'secrets.jlasut.io'
     kind: 'XCESS'
+  - group: 'platform.jlasut.io'
+    kind: 'XKomoplane'
   - group: 'secretmanager.gcp.upbound.io'
     kind: Secret
+  - group: '*'
+    kind: 'ProviderConfig'
   destinations:
   - namespace: 'upbound-system'
     server: 'https://kubernetes.default.svc'
