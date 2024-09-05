@@ -1,3 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: todo-app
+---
 apiVersion: application.jlasut.io/v1alpha1
 kind: DemoBackend
 metadata:
