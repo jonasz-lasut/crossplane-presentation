@@ -5,7 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
-  package: xpkg.upbound.io/upbound/provider-family-gcp:v1.7.0
+  package: xpkg.upbound.io/upbound/provider-family-gcp:v1.6.0
   runtimeConfigRef:
     apiVersion: pkg.crossplane.io/v1beta1
     kind: DeploymentRuntimeConfig
