@@ -9,7 +9,7 @@ spec:
   providerConfigName: emerging-tech-provider
   deletionPolicy: Delete
   backend:
-    image: 'ttl.sh/axum_demo_todo:6h'
+    image: 'ttl.sh/axum_demo_todo:24h'
     port: 8080
     hostname: demobackend.127.0.0.1.nip.io
   database:
