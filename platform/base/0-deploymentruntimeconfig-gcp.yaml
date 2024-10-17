@@ -1,0 +1,12 @@
+apiVersion: pkg.crossplane.io/v1beta1
+kind: DeploymentRuntimeConfig
+metadata:
+  name: emerging-tech-runtime-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  serviceAccountTemplate:
+    metadata:
+      name: gke-crossplane
+      annotations:
+        iam.gke.io/gcp-service-account: gke-crossplane@p-s-emerging-tech-n9tj.iam.gserviceaccount.com

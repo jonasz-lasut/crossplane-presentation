@@ -1,0 +1,10 @@
+apiVersion: database.jlasut.io/v1alpha1
+kind: XAtlas
+metadata:
+  name: atlas-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  parameters:
+    providerConfigName: emerging-tech-provider
+    prewarmDB: true

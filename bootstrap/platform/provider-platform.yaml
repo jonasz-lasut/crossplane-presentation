@@ -1,0 +1,15 @@
+apiVersion: helm.crossplane.io/v1beta1
+kind: ProviderConfig
+metadata:
+  name: emerging-tech-provider
+spec:
+  credentials:
+    source: InjectedIdentity
+---
+apiVersion: kubernetes.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: emerging-tech-provider
+spec:
+  credentials:
+    source: InjectedIdentity

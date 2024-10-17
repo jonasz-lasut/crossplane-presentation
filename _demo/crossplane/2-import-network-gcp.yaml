@@ -1,0 +1,14 @@
+apiVersion: compute.gcp.upbound.io/v1beta1
+kind: Network
+metadata:
+  name: emerging-tech-network
+  labels:
+    networks.gcp.platform.upbound.io/network-id: emerging-tech-network
+  annotations:
+    crossplane.io/external-name: shared-vpc-emerging-tech
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  managementPolicies: ["Observe"]
+  providerConfigRef:
+    name: emerging-tech-provider
+  forProvider: {}

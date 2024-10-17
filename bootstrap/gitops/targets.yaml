@@ -1,0 +1,23 @@
+key:
+  components:
+    - name: base-platform-infrastructure
+      namespace: upbound-system
+      server: https://kubernetes.default.svc
+      project: base-platform
+      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
+      version: init
+      folder: "platform/base/"
+    - name: crossplane-infrastructure
+      namespace: upbound-system
+      server: https://kubernetes.default.svc
+      project: crossplane
+      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
+      version: init
+      folder: "platform/crossplane/"
+    - name: argocd-applications
+      namespace: argocd
+      server: https://kubernetes.default.svc
+      project: application
+      repoUrl: https://github.com/jonasz-lasut/crossplane-presentation.git
+      version: init
+      folder: "platform/apps/"

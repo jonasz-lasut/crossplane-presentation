@@ -1,0 +1,62 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: base-platform
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: 'pkg.crossplane.io'
+    kind: 'Configuration'
+  - group: 'pkg.crossplane.io'
+    kind: 'Provider'
+  - group: 'pkg.crossplane.io'
+    kind: DeploymentRuntimeConfig
+  - group: '*'
+    kind: 'ProviderConfig'
+  destinations:
+  - namespace: 'upbound-system'
+    server: 'https://kubernetes.default.svc'
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: crossplane
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: 'gcp.platform.upbound.io'
+    kind: 'SQLInstance'
+  - group: 'compute.gcp.upbound.io'
+    kind: 'Network'
+  - group: 'database.jlasut.io'
+    kind: 'XAtlas'
+  - group: 'secrets.jlasut.io'
+    kind: 'XCESS'
+  - group: 'platform.jlasut.io'
+    kind: 'XKomoplane'
+  - group: 'secretmanager.gcp.upbound.io'
+    kind: Secret
+  - group: '*'
+    kind: 'ProviderConfig'
+  destinations:
+  - namespace: 'upbound-system'
+    server: 'https://kubernetes.default.svc'
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: application
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: 'application.jlasut.io'
+    kind: 'DemoBackend'
+  destinations:
+  - namespace: '*'
+    server: 'https://kubernetes.default.svc'
+  sourceRepos:
+  - '*'

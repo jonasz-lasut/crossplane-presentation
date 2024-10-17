@@ -1,0 +1,10 @@
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: upbound-provider-gcp-servicenetworking
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  package: xpkg.upbound.io/upbound/provider-gcp-servicenetworking:v0.41.1
+  runtimeConfigRef:
+    name: emerging-tech-runtime-config
